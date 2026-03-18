@@ -1,16 +1,21 @@
 package com.nttdata.stepsdefinitions;
 
+import com.nttdata.steps.CatalogSteps;
 import io.cucumber.java.PendingException;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import net.serenitybdd.annotations.Steps;
 
 public class SauceLabsStepDef {
+
+    @Steps
+    CatalogSteps catalogSteps;
+
     @Given("estoy en la aplicación de SauceLabs")
     public void estoyEnLaAplicaciónDeSauceLabs() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
+        catalogSteps.validarVentanaInicial();
     }
 
     @And("valido que carguen correctamente los productos en la galeria")

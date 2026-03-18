@@ -12,4 +12,11 @@ public class CommonActions extends PageObject {
 
         find(AppiumBy.androidUIAutomator(scrollDinamico)).waitUntilClickable().click();
     }
+
+    // Método reutilizable para hacer scroll y clic en cualquier elemento por su resource-id
+    public void scrollAndClickByResourceId(String resourceId) {
+        String scrollDinamico = String.format(
+                "new UiScrollable(new UiSelector().scrollable(true)).scrollIntoView(new UiSelector().resourceId(\"%s\"))", resourceId);
+        find(AppiumBy.androidUIAutomator(scrollDinamico)).waitUntilClickable().click();
+    }
 }

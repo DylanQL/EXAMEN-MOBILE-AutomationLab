@@ -20,8 +20,7 @@ public class SauceLabsStepDef {
 
     @And("valido que carguen correctamente los productos en la galeria")
     public void validoQueCarguenCorrectamenteLosProductosEnLaGaleria() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
+        catalogSteps.validarProductosCargados();
     }
 
     @When("agrego <UNIDADES> del siguiente producto {string}")

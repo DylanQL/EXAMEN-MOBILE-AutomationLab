@@ -14,4 +14,8 @@ public class ProductSteps {
     public void agregarProductoCarritoDeCompras() {
         productScreem.click_on_add_to_cart();
     }
+
+    public void irAlCarritoDeCompras() {
+        productScreem.click_on_cart();
+    }
 }

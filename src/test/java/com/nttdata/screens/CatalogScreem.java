@@ -19,4 +19,8 @@ public class CatalogScreem extends PageObject {
         // android.widget.ImageView[@content-desc="NOMBRE DE PRODUCTO"]
         new CommonActions().scrollAndClickByDescription(product);
     }
+
+    public boolean detectarTituloPantalla() {
+        return lbl_title_screem.isDisplayed();
+    }
 }

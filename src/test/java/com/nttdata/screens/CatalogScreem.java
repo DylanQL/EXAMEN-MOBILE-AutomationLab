@@ -23,4 +23,8 @@ public class CatalogScreem extends PageObject {
     public boolean detectarTituloPantalla() {
         return lbl_title_screem.isDisplayed();
     }
+
+    public int obtenerCantidadProductos() {
+        return lbl_title_of_product.size();
+    }
 }

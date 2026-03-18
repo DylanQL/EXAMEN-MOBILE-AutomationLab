@@ -33,7 +33,7 @@ public class SauceLabsStepDef {
         catalogSteps.validarProductosCargados();
     }
 
-    @When("agrego <UNIDADES> del siguiente producto {string}")
+    @When("agrego {int} del siguiente producto {string}")
     public void agregoUNIDADESDelSiguienteProducto(int unidades, String productoName) {
         this.unidades = unidades;
         this.productoName = productoName;

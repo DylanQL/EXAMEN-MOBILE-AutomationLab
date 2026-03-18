@@ -1,8 +1,8 @@
 package com.nttdata.stepsdefinitions;
 
+import com.nttdata.steps.CartSteps;
 import com.nttdata.steps.CatalogSteps;
 import com.nttdata.steps.ProductSteps;
-import io.cucumber.java.PendingException;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -15,6 +15,13 @@ public class SauceLabsStepDef {
     CatalogSteps catalogSteps;
     @Steps
     ProductSteps productSteps;
+    @Steps
+    CartSteps cartSteps;
+
+    //Unidades del producto a agregar al carrito
+    private int unidades;
+    //Nombre del producto a agregar al carrito
+    private String productoName;
 
     @Given("estoy en la aplicación de SauceLabs")
     public void estoyEnLaAplicaciónDeSauceLabs() {
@@ -28,6 +35,8 @@ public class SauceLabsStepDef {
 
     @When("agrego <UNIDADES> del siguiente producto {string}")
     public void agregoUNIDADESDelSiguienteProducto(int unidades, String productoName) {
+        this.unidades = unidades;
+        this.productoName = productoName;
         catalogSteps.seleccionarProduct(productoName);
         productSteps.introducirCantidadProductos(unidades);
         productSteps.agregarProductoCarritoDeCompras();
@@ -35,7 +44,8 @@ public class SauceLabsStepDef {
 
     @Then("valido el carrito de compra actualice correctamente")
     public void validoElCarritoDeCompraActualiceCorrectamente() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
+        productSteps.irAlCarritoDeCompras();
+        cartSteps.validarNombreProductoAgregado(productoName);
+        cartSteps.validarCantidadAgregada(unidades);
     }
 }
